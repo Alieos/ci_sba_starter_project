@@ -17,5 +17,12 @@
     "gulp": "^3.9.1",
     "gulp-debug": "^3.1.0",
     "gulp-rename": "^1.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^2.1.4",
+    "parsleyjs": "^2.7.0",
+    "startbootstrap-sb-admin-2": "^3.3.7"
   }
 }
