@@ -56,16 +56,16 @@ gulp.task('copy-vendor', function()
 
 
 	// --- SB Admin 2 ---
-	gulp.src(NODE_PATH + 'sb-admin-2/dist/css/sb-admin-2.min.css')
+	gulp.src(NODE_PATH + 'startbootstrap-sb-admin-2/dist/css/sb-admin-2.min.css')
         .pipe(debug({title: 'sd-admin-2 css'}))
         .pipe(gulp.dest(VENDOR_PATH + 'sb-admin-2/dist/css'));
-	gulp.src(NODE_PATH + 'sb-admin-2/dist/js/sb-admin-2.min.js')
+	gulp.src(NODE_PATH + 'startbootstrap-sb-admin-2/dist/js/sb-admin-2.min.js')
         .pipe(debug({title: 'ab-admin-2 js'}))
         .pipe(gulp.dest(VENDOR_PATH + 'sb-admin-2/dist/js'));
-	gulp.src(NODE_PATH + 'sb-admin-2/vendor/datatables*/**')
+	gulp.src(NODE_PATH + 'startbootstrap-sb-admin-2/vendor/datatables*/**')
         .pipe(debug({title: 'ab-admin-2 datatables'}))
         .pipe(gulp.dest(VENDOR_PATH + 'sb-admin-2/vendor'));
-	gulp.src(NODE_PATH + 'sb-admin-2/vendor/metisMenu/**')
+	gulp.src(NODE_PATH + 'startbootstrap-sb-admin-2/vendor/metisMenu/**')
         .pipe(debug({title: 'ab-admin-2 metis-menu'}))
         .pipe(gulp.dest(VENDOR_PATH + 'sb-admin-2/vendor/metisMenu'));
 	console.log('~ copied SB Admin 2 files.');
