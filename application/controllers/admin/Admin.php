@@ -27,7 +27,7 @@ class Admin extends CI_Controller
     public function start()
     {
         $this->User_log_model->validate_access();
-        $this->load->view('admin/authenticate/start_page');
+        $this->load->view('admin/admin/start_page');
     }
 	
 } // end Admin controller class
