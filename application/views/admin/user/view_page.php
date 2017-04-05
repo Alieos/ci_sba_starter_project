@@ -105,7 +105,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Last Update</label>
+                                            <label class="col-md-2 control-label">Last Updated</label>
                                             <div class="col-md-10">
                                                 <p id="last_updated" class="form-control-static">
                                                     <?=format_rfc($user['last_updated']);?>
