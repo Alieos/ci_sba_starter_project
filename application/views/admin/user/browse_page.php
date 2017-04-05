@@ -27,7 +27,8 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <ol class="breadcrumb">
-            <li>Home</li>
+            <li><a href="<?=site_url(ADMIN_START_PAGE);?>">Home</a></li>
+            <li class="active">Users</li>
         </ol>
 
         <div class="row">
