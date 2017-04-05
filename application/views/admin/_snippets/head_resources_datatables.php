@@ -27,6 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Font Awesome Icons -->
 <link href="<?=RESOURCES_FOLDER;?>vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
+<!-- Custom CSS -->
+<link href="<?=RESOURCES_FOLDER;?>project/main-admin.css" rel="stylesheet" type="text/css" />
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
