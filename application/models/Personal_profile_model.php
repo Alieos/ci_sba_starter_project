@@ -14,13 +14,21 @@ class Personal_profile_model extends CI_Model
 {
 	public function get_by_id()
 	{
-		$query = $this->db->get_where(TABLER_USER, array('user_id' => $this->session->userdata('user_id')));
+		$this->db->select('username, name, password_hash, status, date_added, last_updated');
+		$this->db->from(TABLE_USER);
+		$this->db->where('user_id = ', $this->session->userdata('user_id'));
+
+		$query = $this->db->get();
 		return $query->row_array();
 	}
 
 	public function get_by_username()
 	{
-		$query = $this->db->get_where(TABLER_USER, array('username' => $this->session->userdata('username')));
+		$this->db->select('username, name, password_hash, status, date_added, last_updated');
+		$this->db->from(TABLE_USER);
+		$this->db->where('username = ', $this->session->userdata('username'));
+
+		$query = $this->db->get();
 		return $query->row_array();
 	}
 

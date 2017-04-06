@@ -33,6 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li><a href="<?=site_url('admin/authenticate/logout');?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="<?=site_url('admin/personal_profile/view');?>"><i class="fa fa-eye fa-fw"></i> View Profile</a></li>
+                <li><a href="<?=site_url('admin/personal_profile/change_password');?>"><i class="fa fa-key fa-fw"></i> Change Password</a></li>
             </ul>
         </li>
     </ul>
