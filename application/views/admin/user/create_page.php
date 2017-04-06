@@ -40,26 +40,26 @@
                 <h1 class="page-header"><i class="fa fa-plus fa-fw"></i> Create User</h1>
 
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         
                         <form id="create_form" class="form-horizontal" method="post" data-parsley-validate>
                             <fieldset>
                                 <legend>User's Details</legend>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="username">
+                                    <label class="col-md-3 control-label" for="username">
                                         Username <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="text" id="username" name="username" class="form-control"
                                             required maxlength="512" value="<?=set_value('username');?>" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="name">
+                                    <label class="col-md-3 control-label" for="name">
                                         Name <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="text" id="name" name="name" class="form-control"
                                             required maxlength="512" value="<?=set_value('name');?>" />
                                     </div>
@@ -70,20 +70,20 @@
                                 <legend>Password</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="password">
+                                    <label class="col-md-3 control-label" for="password">
                                         Password <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="password" id="password" name="password" class="form-control"
                                             required minlength="6" maxlength="512" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="confirm_password">
+                                    <label class="col-md-3 control-label" for="confirm_password">
                                         Confirm Password <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="password" id="confirm_password" name="confirm_password" class="form-control"
                                             required minlength="6" maxlength="512" matches="#password" />
                                     </div>
@@ -94,10 +94,10 @@
                                 <legend>Admin</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="access">
+                                    <label class="col-md-3 control-label" for="access">
                                         Access <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <?php foreach($access as $key=>$access_option): ?>
                                             <div class="checkbox">
                                                 <label>
@@ -113,8 +113,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Status</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Status</label>
+                                    <div class="col-md-9">
                                         <p id="status" class="form-control-static">
                                             <span class="label label-default label-activated">Activated</span>
                                         </p>
@@ -124,7 +124,7 @@
                             <br/>
 
                             <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
+                                <div class="col-md-9 col-md-offset-3">
                                     <button id="submit_btn" class="btn btn-primary" type="submit">
                                         <i class="fa fa-check fa-fw"></i> Submit
                                     </button>

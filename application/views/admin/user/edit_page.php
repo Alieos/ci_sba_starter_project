@@ -45,26 +45,26 @@
                 <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         
                         <form id="create_form" class="form-horizontal" method="post" data-parsley-validate>
                             <fieldset>
                                 <legend>User's Details</legend>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="username">
+                                    <label class="col-md-3 control-label" for="username">
                                         Username <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="text" id="username" name="username" class="form-control"
                                             required maxlength="512" value="<?=set_value('username', $user['username']);?>" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="name">
+                                    <label class="col-md-3 control-label" for="name">
                                         Name <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="text" id="name" name="name" class="form-control"
                                             required maxlength="512" value="<?=set_value('name', $user['name']);?>" />
                                     </div>
@@ -73,7 +73,7 @@
                             <br/>
 
                             <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
+                                <div class="col-md-9 col-md-offset-3">
                                     <a id="reset_password_btn" class="btn btn-default"
                                         href="<?=site_url('admin/user/reset_password/' . $user['user_id']);?>">
                                         <i class="fa fa-key fa-fw"></i> Reset Password
@@ -85,10 +85,10 @@
                                 <legend>Admin</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="access">
+                                    <label class="col-md-3 control-label" for="access">
                                         Access <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <?php
                                         $access_array = str_split($user['access']);
                                         foreach($access as $key=>$access_option):
@@ -115,10 +115,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="status">
+                                    <label class="col-md-3 control-label" for="status">
                                         Status <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <select id="status" name="status" class="form-control" required>
                                             <?php foreach($status as $key=>$status_option): ?>
                                                 <option id="status_<?=$key;?>" value="<?=$status_option;?>" <?=set_select('status', $status_option, ($user['status'] == $status_option)); ?>><?=$status_option;?></option>
@@ -128,8 +128,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Date Added</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Date Added</label>
+                                    <div class="col-md-9">
                                         <p id="date_added" class="form-control-static">
                                             <?=format_dd_mmm_yyyy_hh_ii_ss($user['date_added']);?>
                                         </p>
@@ -137,8 +137,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Last Updated</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Last Updated</label>
+                                    <div class="col-md-9">
                                         <p id="last_updated" class="form-control-static">
                                             <?=format_rfc($user['last_updated']);?>
                                         </p>
@@ -148,7 +148,7 @@
                             <br/>
 
                             <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
+                                <div class="col-md-9 col-md-offset-3">
                                     <button id="submit_btn" class="btn btn-primary" type="submit">
                                         <i class="fa fa-check fa-fw"></i> Submit
                                     </button>

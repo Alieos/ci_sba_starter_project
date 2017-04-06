@@ -65,7 +65,7 @@ class Personal_profile extends CI_Controller
 			$data = array(
 				'personal_profile' => $personal_profile
 			);
-			$this->load->model('admin/personal_profile/edit_page', $data);
+			$this->load->view('admin/personal_profile/edit_page', $data);
 		}
 		else
 		{
@@ -97,15 +97,15 @@ class Personal_profile extends CI_Controller
 	public function change_password()
 	{
 		$this->User_log_model->validate_access();
-		$personal_profile = $this->Personal_profile->get_by_id();
+		$personal_profile = $this->Personal_profile_model->get_by_id();
 		if($personal_profile)
 		{
 			$this->_set_rules_change_password();
 			if($this->form_validation->run())
 			{
-				if(password_verify($this->input->post('password'), $personal_profile['password_hash']))
+				if(password_verify($this->input->post('old_password'), $personal_profile['password_hash']))
 				{
-					$user['password_hash'] = password_hash($this->input->post('new_password', PASSWORD_DEFAULT));
+					$user['password_hash'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
 					if($this->Personal_profile_model->update($personal_profile))
 					{
 						$this->User_log_model->log_message('PASSWORD UPDATED.');

@@ -44,14 +44,14 @@
                 <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         
                         <form id="create_form" class="form-horizontal" method="post" data-parsley-validate>
                             <fieldset>
                                 <legend>User's Details</legend>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Username</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Username</label>
+                                    <div class="col-md-9">
                                         <p id="username" class="form-control-static">
                                             <?=$user['username'];?>
                                         </p>
@@ -59,13 +59,20 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Name</label>
-                                    <div class="col-md-10">
-                                        <div class="col-md-10">
-                                            <p id="name" class="form-control-static">
-                                                <?=$user['name'];?>
-                                            </p>
-                                        </div>
+                                    <label class="col-md-3 control-label">Name</label>
+                                    <div class="col-md-9">
+                                        <p id="name" class="form-control-static">
+                                            <?=$user['name'];?>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-9 col-md-offset-3">
+                                        <a id="reset_password_btn" class="btn btn-default"
+                                           href="<?=site_url('admin/user/edit/' . $user['user_id']);?>">
+                                            <i class="fa fa-pencil-square-o fa-fw"></i> Edit User
+                                        </a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -74,20 +81,20 @@
                                 <legend>Password</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="new_password">
+                                    <label class="col-md-3 control-label" for="new_password">
                                         New Password <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="password" id="new_password" name="new_password" class="form-control"
                                             required minlength="6" maxlength="512" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="confirm_new_password">
+                                    <label class="col-md-3 control-label" for="confirm_new_password">
                                         New Confirm Password <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-md-10">
+                                    <div class="col-md-9">
                                         <input type="password" id="confirm_new_password" name="confirm_new_password" class="form-control"
                                             required minlength="6" maxlength="512" matches="#new_password" />
                                     </div>
@@ -98,8 +105,8 @@
                                 <legend>Admin</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Access</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Access</label>
+                                    <div class="col-md-9">
                                         <p id="access" class="form-control-static">
                                             <?php
                                                 $user_access = str_split($user['access']);
@@ -113,8 +120,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Status</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Status</label>
+                                    <div class="col-md-9">
                                         <p id="status" class="form-control-static">
                                             <span class="label label-default label-<?=strtolower($user['status']);?>"><?=$user['status'];?></span>
                                         </p>
@@ -122,8 +129,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Date Added</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Date Added</label>
+                                    <div class="col-md-9">
                                         <p id="date_added" class="form-control-static">
                                             <?=format_dd_mmm_yyyy_hh_ii_ss($user['date_added']);?>
                                         </p>
@@ -131,8 +138,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Last Updated</label>
-                                    <div class="col-md-10">
+                                    <label class="col-md-3 control-label">Last Updated</label>
+                                    <div class="col-md-9">
                                         <p id="last_updated" class="form-control-static">
                                             <?=format_rfc($user['last_updated']);?>
                                         </p>
@@ -142,7 +149,7 @@
                             <br/>
 
                             <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
+                                <div class="col-md-9 col-md-offset-3">
                                     <button id="submit_btn" class="btn btn-primary" type="submit">
                                         <i class="fa fa-check fa-fw"></i> Submit
                                     </button>

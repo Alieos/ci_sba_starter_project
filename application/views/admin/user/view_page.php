@@ -52,15 +52,15 @@
                     <div class="col-md-12">
 
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 
                                 <form id="view_user" class="form-horizontal">
                                     <fieldeset>
                                         <legend>User's Details</legend>
                                         
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Username</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Username</label>
+                                            <div class="col-md-9">
                                                 <p id="username" class="form-control-static">
                                                     <?=$user['username'];?>
                                                 </p>
@@ -68,8 +68,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Name</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Name</label>
+                                            <div class="col-md-9">
                                                 <p id="name" class="form-control-static">
                                                     <?=$user['name'];?>
                                                 </p>
@@ -81,8 +81,8 @@
                                         <legend>Admin</legend>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Access</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Access</label>
+                                            <div class="col-md-9">
                                                 <p id="access" class="form-control-static">
                                                     <?php
                                                         $user_access = str_split($user['access']);
@@ -96,8 +96,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Status</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Status</label>
+                                            <div class="col-md-9">
                                                 <p id="status" class="form-control-static">
                                                     <span class="label label-default label-<?=strtolower($user['status']);?>"><?=$user['status'];?></span>
                                                 </p>
@@ -105,8 +105,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Date Added</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Date Added</label>
+                                            <div class="col-md-9">
                                                 <p id="date_added" class="form-control-static">
                                                     <?=format_dd_mmm_yyyy_hh_ii_ss($user['date_added']);?>
                                                 </p>
@@ -114,8 +114,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">Last Updated</label>
-                                            <div class="col-md-10">
+                                            <label class="col-md-3 control-label">Last Updated</label>
+                                            <div class="col-md-9">
                                                 <p id="last_updated" class="form-control-static">
                                                     <?=format_rfc($user['last_updated']);?>
                                                 </p>
