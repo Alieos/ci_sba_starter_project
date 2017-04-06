@@ -39,7 +39,7 @@
                       <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/personal_profile/edit');?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
+                        <li><a href="<?=site_url('admin/personal_profile/edit');?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit Profile</a></li>
                         <li><a href="<?=site_url('admin/personal_profile/change_password');?>"><i class="fa fa-key fa-fw"></i> Change Password</a></li>
                     </ul>
                 </div>
@@ -61,7 +61,7 @@
                                             <label class="col-md-2 control-label">Username</label>
                                             <div class="col-md-10">
                                                 <p id="username" class="form-control-static">
-                                                    <?=$user['username'];?>
+                                                    <?=$personal_profile['username'];?>
                                                 </p>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                                             <label class="col-md-2 control-label">Name</label>
                                             <div class="col-md-10">
                                                 <p id="name" class="form-control-static">
-                                                    <?=$user['name'];?>
+                                                    <?=$personal_profile['name'];?>
                                                 </p>
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                             <label class="col-md-2 control-label">Status</label>
                                             <div class="col-md-10">
                                                 <p id="status" class="form-control-static">
-                                                    <span class="label label-default label-<?=strtolower($user['status']);?>"><?=$user['status'];?></span>
+                                                    <span class="label label-default label-<?=strtolower($personal_profile['status']);?>"><?=$personal_profile['status'];?></span>
                                                 </p>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                             <label class="col-md-2 control-label">Date Added</label>
                                             <div class="col-md-10">
                                                 <p id="date_added" class="form-control-static">
-                                                    <?=format_dd_mmm_yyyy_hh_ii_ss($user['date_added']);?>
+                                                    <?=format_dd_mmm_yyyy_hh_ii_ss($personal_profile['date_added']);?>
                                                 </p>
                                             </div>
                                         </div>
@@ -101,7 +101,7 @@
                                             <label class="col-md-2 control-label">Last Updated</label>
                                             <div class="col-md-10">
                                                 <p id="last_updated" class="form-control-static">
-                                                    <?=format_rfc($user['last_updated']);?>
+                                                    <?=format_rfc($personal_profile['last_updated']);?>
                                                 </p>
                                             </div>
                                         </div>
