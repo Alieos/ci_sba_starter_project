@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li><a href="<?=site_url(ADMIN_START_PAGE);?>">Home</a></li>
-            <li><a href="site_url('admin/user/browse');?>">Users</a></li>
+            <li><a href="<?=site_url('admin/user/browse');?>">Users</a></li>
             <li class="active">User ID: <?=$user['user_id'];?></li>
         </ol>
 
@@ -41,7 +41,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="<?=site_url('admin/user/edit/' . $user['user_id']);?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
-                        <li><a href="<?=site_url('admin/user/reset_password');?>"><i class="fa fa-key fa-fw"></i> Reset Password</a></li>
+                        <li><a href="<?=site_url('admin/user/reset_password/' . $user['user_id']);?>"><i class="fa fa-key fa-fw"></i> Reset Password</a></li>
                     </ul>
                 </div>
                 </h1>
@@ -99,7 +99,7 @@
                                             <label class="col-md-2 control-label">Status</label>
                                             <div class="col-md-10">
                                                 <p id="status" class="form-control-static">
-                                                    <?=$user['status'];?>
+                                                    <span class="label label-default label-<?=strtolower($user['status']);?>"><?=$user['status'];?></span>
                                                 </p>
                                             </div>
                                         </div>

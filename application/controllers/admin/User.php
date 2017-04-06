@@ -111,13 +111,13 @@ class User extends CI_Controller
 			{
 				if($this->User_model->update($this->_prepare_edit_array($user)))
 				{
-					$this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user['user_id']);
+					$this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user_id);
 					$this->session->set_userdata('message', 'User record <mark>updated</mark>.');
 					redirect('admin/user/view/' . $user['user_id']);
 				}
 				else
 				{
-					$this->User_log_model->log_message('Unable to UPDATE User record. | user_id: ' . $user['user_id']);
+					$this->User_log_model->log_message('Unable to UPDATE User record. | user_id: ' . $user_id);
 					$this->session->set_userdata('message', '<mark>Unable</mark> to update User record.');
 				}
 			}
@@ -160,6 +160,47 @@ class User extends CI_Controller
 		$user['status'] = $this->input->post('status');
 
 		return $user;
+	}
+
+	public function reset_password($user_id)
+	{
+		$this->User_log_model->validate_access();
+		$user = $this->User_model->get_by_user_id($user_id);
+		if($user)
+		{
+			$this->_set_rules_reset_password();
+			if($this->form_validation->run())
+			{
+				$user['password_hash'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+				if($this->User_model->update($user))
+				{
+					$this->User_log_model->log_message('User\'s PASSWORD UPDATED. | user_id: ' . $user_id);
+					$this->session->set_userdata('message', 'User\'s <mark>password updated</mark>.');
+					redirect('admin/user/view/' . $user['user_id']);
+				}
+				else
+				{
+					$this->User_log_model->log_message('Unable to UPDATE User\'s PASSWORD. | user_id: ' . $user_id);
+					$this->session->set_userdata('message', 'Unable to <mark>update User\'s password</mark>.');
+				}
+			}
+			$data = array(
+				'user' => $user,
+				'access' => $this->User_model->_access_array()
+			);
+			$this->load->view('admin/user/reset_password_page', $data);
+		}
+		else
+		{
+			$this->_resolve_invalid_record();
+		}
+	}
+
+	private function _set_rules_reset_password()
+	{
+		$this->form_validation->set_rules('new_password', 'New Password', 'trim|required|min_length[6]|max_length[512]');
+		$this->form_validation->set_rules('confirm_new_password', 'Confirm New Password',
+				'trim|required|matches[new_password]|min_length[6]|max_length[512]');
 	}
 
 	private function _resolve_invalid_record()

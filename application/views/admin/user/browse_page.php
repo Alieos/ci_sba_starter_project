@@ -67,7 +67,7 @@
                                             }
                                         ?>
                                     </td>
-                                    <td><?=$user['status'];?></td>
+                                    <td><span class="label label-default label-<?=strtolower($user['status']);?>"><?=$user['status'];?></span></td>
                                     <td data-sort="<?=format_dd_mm_yyyy_hh_ii_ss($user['last_updated']);?>"
                                         ><?=format_dd_mmm_yyyy($user['last_updated'], ' ');?></td>
                                 </tr>
