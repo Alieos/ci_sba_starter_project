@@ -99,7 +99,7 @@ class User_model extends CI_Model
     public function _access_array()
     {
         return array(
-            'A' => 'Aministrator',
+            'A' => 'Administrator',
             'M' => 'Manager',
             'U' => 'User'
         );

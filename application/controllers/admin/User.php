@@ -200,7 +200,7 @@ class User extends CI_Controller
 	{
 		$this->form_validation->set_rules('new_password', 'New Password', 'trim|required|min_length[6]|max_length[512]');
 		$this->form_validation->set_rules('confirm_new_password', 'Confirm New Password',
-				'trim|required|matches[new_password]|min_length[6]|max_length[512]');
+			'trim|required|matches[new_password]|min_length[6]|max_length[512]');
 	}
 
 	private function _resolve_invalid_record()
