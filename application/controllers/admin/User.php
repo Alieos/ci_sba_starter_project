@@ -37,7 +37,26 @@ class User extends CI_Controller
 	public function create()
 	{
 		$this->User_log_model->validate_access();
-
+		$this->_set_rules_create();
+		if($this->form_validation->run())
+		{
+			if($user_id = $this->User_model->insert($this->_prepare_create_array()))
+			{
+				$this->User_log_model->log_message('User record CREATED. | user_id: ' . $user_id);
+				$this->session->set_userdata('message', 'User record <mark>create</mark>. <a href="' . site_url('admin/user/create') . '">Create another.</a>');
+				redirect('admin/user/view/'. $user_id);
+			}
+			else
+			{
+				$this->User_log_model->log_message('Unable to CREATE User record.');
+				$this->session->set_userdata('message', 'Unable to <mark>create</mark> User record');
+			}
+		}
+		$data = array(
+			'access' => $this->User_model->_access_array(),
+			'status' => $this->User_model->_status_array()
+		);
+		$this->load->view('admin/user/create_page', $data);
 	}
 
 	private function _set_rules_create()
@@ -49,8 +68,6 @@ class User extends CI_Controller
 
 		$access_str = implode(',', array_keys($this->User_model->_access_array()));
 		$this->form_validation->set_rules('access', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
-		$status_str = implode(',', $this->User_model->_status_array());
-		$this->form_validation->set_urles('status', 'Status', 'trim|required|in_list[' . $status_str . ']|max_length[512]');
 	}
 
 	private function _prepare_create_array()
@@ -59,8 +76,8 @@ class User extends CI_Controller
 		$user['username'] = $this->input->post('username');
 		$user['name'] = $this->input->post('name');
 		$user['password_hash'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-		$user['access'] = $this->input->post('access');
-		$user['status'] = $this->input->post('status');
+		$user['access'] = implode(',', $this->input->post('access'));
+		$user['status'] = $this->User_model->_status_array()[0];
 
 		return $user;
 	}
@@ -79,11 +96,73 @@ class User extends CI_Controller
 		}
 		else
 		{
-			resolve_invalid_record();
+			$this->_resolve_invalid_record();
 		}
 	}
 
-	private function resolve_invalid_record()
+	public function edit($user_id)
+	{
+		$this->User_log_model->validate_access();
+		$user = $this->User_model->get_by_user_id($user_id);
+		if($user)
+		{
+			$this->_set_rules_edit($user);
+			if($this->form_validation->run())
+			{
+				if($this->User_model->update($this->_prepare_edit_array($user)))
+				{
+					$this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user['user_id']);
+					$this->session->set_userdata('message', 'User record <mark>updated</mark>.');
+					redirect('admin/user/view/' . $user['user_id']);
+				}
+				else
+				{
+					$this->User_log_model->log_message('Unable to UPDATE User record. | user_id: ' . $user['user_id']);
+					$this->session->set_userdata('message', '<mark>Unable</mark> to update User record.');
+				}
+			}
+			$data = array(
+				'user' => $user,
+				'access' => $this->User_model->_access_array(),
+				'status' => $this->User_model->_status_array()
+			);
+			$this->load->view('admin/user/edit_page', $data);
+		}
+		else
+		{
+			$this->_resolve_invalid_record();
+		}
+	}
+
+	private function _set_rules_edit($user)
+	{
+		if($this->input->post('username') == $user['username'])
+		{
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[512]');
+		}
+		else
+		{
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[user.username]|max_length[512]');
+		}
+
+		$this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
+		$access_str = implode(',', array_keys($this->User_model->_access_array()));
+		$this->form_validation->set_rules('access[]', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
+		$status_str = implode(',', $this->User_model->_status_array());
+		$this->form_validation->set_rules('status', 'Status', 'trim|required|in_list[' . $status_str . ']|max_length[512]');
+	}
+
+	private function _prepare_edit_array($user)
+	{
+		$user['username'] = $this->input->post('username');
+		$user['name'] = $this->input->post('name');
+		$user['access'] = implode(',', $this->input->post('access'));
+		$user['status'] = $this->input->post('status');
+
+		return $user;
+	}
+
+	private function _resolve_invalid_record()
 	{
 		$this->session->set_userdata('message', 'User record not found.');
 		redirect('admin/user/browse');

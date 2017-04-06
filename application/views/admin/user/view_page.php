@@ -40,7 +40,7 @@
                       <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/user/edit');?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
+                        <li><a href="<?=site_url('admin/user/edit/' . $user['user_id']);?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
                         <li><a href="<?=site_url('admin/user/reset_password');?>"><i class="fa fa-key fa-fw"></i> Reset Password</a></li>
                     </ul>
                 </div>
@@ -100,6 +100,15 @@
                                             <div class="col-md-10">
                                                 <p id="status" class="form-control-static">
                                                     <?=$user['status'];?>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">Date Added</label>
+                                            <div class="col-md-10">
+                                                <p id="date_added" class="form-control-static">
+                                                    <?=format_dd_mmm_yyyy_hh_ii_ss($user['date_added']);?>
                                                 </p>
                                             </div>
                                         </div>
