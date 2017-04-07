@@ -91,7 +91,13 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 */
 define('SITE_NAME', 'Starter Project');
 define('ADMIN_SITE_NAME', 'Starter Project - Admin Panel');
+define('ADMIN_START_PAGE', 'admin/admin/start');
 
 define('RESOURCES_FOLDER', 'http://localhost/ci_sba_starter_project/resources/');
 define('SYSTEM_DATE_FORMAT', 'd M Y');
 define('DATETIME_ZONE', 'Asia/Singapore');
+
+
+/* Table names */
+define('TABLE_USER', 'user');
+define('TABLE_USER_LOG', 'user_log');

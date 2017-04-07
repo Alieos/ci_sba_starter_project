@@ -39,7 +39,10 @@
  *
  *
  * --- CUSTOM LIBRARIES ---
- * 
+ * @property Migration_model $Migration_model
+ * @property Personal_profile_model $Personal_profile_model
+ * @property User_log_model $User_log_model
+ * @property User_model $User_model
  */
 class CI_Controller {};
 class MY_Controller extends CI_Controller {};
@@ -82,9 +85,11 @@ class MY_Controller extends CI_Controller {};
  * @property CI_Xmlrpcs $xmlrpcs
  * @property CI_Zip $zip
  *
- *
  * --- CUSTOM LIBRARIES ---
- * 
+ * @property Migration_model $Migration_model
+ * @property Personal_profile_model $Personal_profile_model
+ * @property User_log_model $User_log_model
+ * @property User_model $User_model
  */
 class CI_Model {};
 
@@ -126,8 +131,10 @@ class CI_Model {};
  * @property CI_Xmlrpcs $xmlrpcs
  * @property CI_Zip $zip
  *
- *
  * --- CUSTOM LIBRARIES ---
- *
+ * @property Migration_model $Migration_model
+ * @property Personal_profile_model $Personal_profile_model
+ * @property User_log_model $User_log_model
+ * @property User_model $User_model
  */
 class CI_Migration {};
