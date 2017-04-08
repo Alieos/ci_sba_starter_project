@@ -155,8 +155,8 @@ class User_model_test extends TestCase
         $CI =& get_instance();
         $accesses = $CI->User_model->_access_array();
         $this->assertCount(3, $accesses);
-        $this->assertContains('A', $accesses);
-        $this->assertArrayHasKey('Administrator', $accesses);
+        $this->assertContains('Administrator', $accesses);
+        $this->assertArrayHasKey('A', $accesses);
     }
 
     public function test_status_array()
