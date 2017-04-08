@@ -2,6 +2,6 @@ cls
 
 cd "../application/tests"
 
-call phpunit "controllers/Page_test.php"
+call phpunit "models/Personal_profile_test.php"
 
 cd "../../cmd_scripts"

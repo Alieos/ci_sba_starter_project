@@ -3,7 +3,7 @@
 	- File Info -
 		File name		: User_model_test.jpg
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 15 Feb 2017
+		Date Created	: 08 Apr 2017
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
