@@ -49,6 +49,7 @@ class Authenticate_test extends TestCase
 			)
 		);
 		$this->request('GET', 'admin/authenticate/start');
+		$this->request('GET', 'admin/admin/start');
 		if($this::DO_ECHO) echo "\n--- logged in\n";
 	}
 
@@ -93,7 +94,6 @@ class Authenticate_test extends TestCase
 	public function test_index()
 	{
 		if($this::DO_ECHO) echo "\n+++ test_index +++\n";
-		$CI =& get_instance();
 		$this->request('POST', 'admin/authenticate/login',
 			array(
 				'username' => $this::USERNAME,

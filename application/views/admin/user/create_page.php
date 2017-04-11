@@ -41,6 +41,9 @@
 
                 <div class="row">
                     <div class="col-md-9">
+
+                        <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
+                        <?php $this->load->view('admin/_snippets/message_box'); ?>
                         
                         <form id="create_form" class="form-horizontal" method="post" data-parsley-validate>
                             <fieldset>
@@ -94,14 +97,14 @@
                                 <legend>Admin</legend>
 
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="access">
+                                    <label class="col-md-3 control-label" for="access[]">
                                         Access <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <?php foreach($access as $key=>$access_option): ?>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" id="access_<?=$key;?>" name="access[]"
+                                                    <input type="checkbox" id="access[]_<?=$key;?>" name="access[]"
                                                         value="<?=$key;?>" required <?=set_checkbox('access[]', $key); ?>
                                                         data-parsley-errors-container="#accessErrors"> <?=$access_option;?>
                                                 </label>

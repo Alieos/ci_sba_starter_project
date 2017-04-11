@@ -17,12 +17,15 @@ class User extends CI_Controller
 		parent::__construct();
 		$this->load->model('User_log_model');
 		$this->load->model('User_model');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
 	{
 		redirect('admin/user/browse');
+		//@codeCoverageIgnoreStart
 	}
+	//@codeCoverageIgnoreEnd
 
 	public function browse()
 	{
@@ -43,7 +46,7 @@ class User extends CI_Controller
 			if($user_id = $this->User_model->insert($this->_prepare_create_array()))
 			{
 				$this->User_log_model->log_message('User record CREATED. | user_id: ' . $user_id);
-				$this->session->set_userdata('message', 'User record <mark>create</mark>. <a href="' . site_url('admin/user/create') . '">Create another.</a>');
+				$this->session->set_userdata('message', 'User record <mark>created</mark>. <a href="' . site_url('admin/user/create') . '">Create another.</a>');
 				redirect('admin/user/view/'. $user_id);
 			}
 			else
@@ -61,13 +64,13 @@ class User extends CI_Controller
 
 	private function _set_rules_create()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[user.username]|max_length[512]');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_dash|is_unique[user.username]|max_length[512]');
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[512]');
 		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]|min_length[6]|max_length[512]');
 
 		$access_str = implode(',', array_keys($this->User_model->_access_array()));
-		$this->form_validation->set_rules('access', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
+		$this->form_validation->set_rules('access[]', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
 	}
 
 	private function _prepare_create_array()
@@ -138,11 +141,11 @@ class User extends CI_Controller
 	{
 		if($this->input->post('username') == $user['username'])
 		{
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[512]');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_dash|max_length[512]');
 		}
 		else
 		{
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[user.username]|max_length[512]');
+			$this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_dash|is_unique[user.username]|max_length[512]');
 		}
 
 		$this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');

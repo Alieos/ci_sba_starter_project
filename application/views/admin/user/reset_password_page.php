@@ -40,11 +40,11 @@
 
                 <h1 class="page-header"><i class="fa fa-key fa-fw"></i> Reset Password</h1>
 
-                <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
-                <?php $this->load->view('admin/_snippets/message_box'); ?>
-
                 <div class="row">
                     <div class="col-md-9">
+
+                        <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
+                        <?php $this->load->view('admin/_snippets/message_box'); ?>
                         
                         <form id="create_form" class="form-horizontal" method="post" data-parsley-validate>
                             <fieldset>

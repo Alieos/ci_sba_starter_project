@@ -36,23 +36,23 @@
             <div id="main" class="col-lg-12">
                 <h1 class="page-header"><i class="fa fa-eye fa-fw"></i> View User&nbsp;
                     <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/user/edit/' . $user['user_id']);?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
-                        <li><a href="<?=site_url('admin/user/reset_password/' . $user['user_id']);?>"><i class="fa fa-key fa-fw"></i> Reset Password</a></li>
-                    </ul>
-                </div>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?=site_url('admin/user/edit/' . $user['user_id']);?>"><i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
+                            <li><a href="<?=site_url('admin/user/reset_password/' . $user['user_id']);?>"><i class="fa fa-key fa-fw"></i> Reset Password</a></li>
+                        </ul>
+                    </div>
                 </h1>
-
-                <?php $this->load->view('admin/_snippets/message_box'); ?>
                 
                 <div class="row">
                     <div class="col-md-12">
 
                         <div class="row">
                             <div class="col-md-9">
+
+                                <?php $this->load->view('admin/_snippets/message_box'); ?>
                                 
                                 <form id="view_user" class="form-horizontal">
                                     <fieldeset>

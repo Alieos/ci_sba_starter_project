@@ -51,7 +51,9 @@ class Personal_profile_model_test extends TestCase
 		$this->request('GET', 'admin/authenticate/login');
 		if($this::DO_ECHO) echo "\n--- logged out\n";
 	}
+	#endregion
 
+	#region Test Functions
 	public function test_get_by_id()
 	{
 		if($this::DO_ECHO) echo "\n+++ test_get_by_id +++\n";

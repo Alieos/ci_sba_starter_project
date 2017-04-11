@@ -11,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
-?>
-<?php if(validation_errors()):?>
+?><?php if(validation_errors()):?>
     <div id="validation_error_box" class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
         </button>
